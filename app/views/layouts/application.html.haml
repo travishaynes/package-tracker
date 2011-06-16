@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Package Tracker
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults, 'jquery', 'rails'
+    = csrf_meta_tag
+  %body
+    #content
+      = yield
+      - flash.each do |name, msg|
+        = content_tag :div, msg, id: "flash_#{name}"
+

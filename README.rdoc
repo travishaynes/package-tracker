@@ -1,0 +1,54 @@
+== About
+
+A sample application that uses the gem Trackerific to track UPS, FedEx and USPS
+packages.
+
+== Configuration
+
+The only configuration necessary is to add a config/application.yml file with
+your UPS, FedEx and USPS credentials.
+
+Example:
+
+  # app/config/application.yml
+  defaults: &defaults
+
+  development:
+    <<: *defaults
+    fedex:
+      account: 123456789
+      meter: 123456789
+    ups:
+      key: OH00TIFNA4IJ8JH4
+      user: username
+      pass: el8EiUwU1J
+    usps:
+      user: 123USER4567
+      
+  test:
+    <<: *defaults
+    fedex:
+      account: 123456789
+      meter: 123456789
+    ups:
+      key: OH00TIFNA4IJ8JH4
+      user: username
+      pass: el8EiUwU1J
+    usps:
+      user: 123USER4567
+
+  production:
+    <<: *defaults
+    fedex:
+      account: <%= ENV['FEDEX_ACCOUNT'] %>
+      meter: <%= ENV['FEDEX_METER'] %>
+    ups:
+      key: <%= ENV['UPS_KEY'] %>
+      login: <%= ENV['UPS_LOGIN'] %>
+      pass: <%= ENV['UPS_PASSWORD'] %>
+    usps:
+      user: <%= ENV['USPS_USER'] %>
+      
+== Sample Tracking Numbers
+
+You can find some sample tracking numbers in the features/tracking.feature file.
