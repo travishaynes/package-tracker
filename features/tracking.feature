@@ -26,7 +26,7 @@ Feature: Tracking Feature
       | EJ958083578US       |
   
   Scenario: Tracking a valid package id for package that does not exist
-  When I fill in "Tracking Number" with "183689015000002"
-  And I press "Track It!"
-  Then the page should have a div with the id "flash_alert"
-  And I should see "No information for the following shipments"
+    When I fill in "Tracking Number" with "183689015000002"
+    And I press "Track It!"
+    Then the page should have a div with the id "flash_alert"
+    And I should see "No information for the following shipments"
