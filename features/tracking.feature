@@ -8,14 +8,25 @@ Feature: Tracking Feature
     And I should see a field named "Tracking Number"
     And I should see a button named "Track It!"
   
+  Scenario: Tracking a package with an invalid package id
+    When I fill in "Tracking Number" with "invalid id"
+    And I press "Track It!"
+    Then I should see "Cannot find a service to track package"
+  
   Scenario Outline: Tracking a package
     When I fill in "Tracking Number" with "<id>"
     And I press "Track It!"
     Then I should see "Details for package"
     And I should see "<id>"
   
-  Examples:
-    | id                  |
-    | 183689015000001     |
-    | 1Z12345E0291980793  |
-    | EJ958083578US       |
+    Examples:
+      | id                  |
+      | 183689015000001     |
+      | 1Z12345E0291980793  |
+      | EJ958083578US       |
+  
+  Scenario: Tracking a valid package id for package that does not exist
+  When I fill in "Tracking Number" with "183689015000002"
+  And I press "Track It!"
+  Then the page should have a div with the id "flash_alert"
+  And I should see "No information for the following shipments"
