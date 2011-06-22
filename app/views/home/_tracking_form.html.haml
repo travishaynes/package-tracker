@@ -1,4 +1,5 @@
-= form_tag root_path do
+- include_validations
+= form_tag root_path, :id => 'tracking_form' do
   = label_tag :package_id, "Tracking Number"
-  = text_field_tag :package_id
+  = text_field_tag :package_id, "", :class => 'required'
   = submit_tag "Track It!"

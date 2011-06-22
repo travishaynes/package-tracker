@@ -1,0 +1,20 @@
+form input {
+  outline: none;
+  border: 1px solid rgb(200,200,200);
+  height: 21px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+input {
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+}
+
+input:focus {
+  box-shadow: 0 0 4px rgba(200, 200, 200, 1);
+  -webkit-box-shadow: 0 0 4px rgba(200, 200, 200, 1); 
+  -moz-box-shadow: 0 0 4px rgba(200, 200, 200, 1); 
+}
