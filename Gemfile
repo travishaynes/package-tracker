@@ -12,6 +12,8 @@ gem 'thor_tasks'
 
 gem "escape_utils" # used to fix encoding issue with rack 1.2.1
 
+gem "compass", ">= 0.11.3"
+
 group :development, :test do
   gem 'haml-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'

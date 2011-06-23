@@ -40,7 +40,12 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
+    chunky_png (1.2.0)
     columnize (0.3.3)
+    compass (0.11.3)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     crack (0.1.8)
     cucumber (1.0.0)
       builder (>= 2.1.2)
@@ -62,6 +67,7 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
+    fssm (0.2.7)
     gherkin (2.4.1)
       json (>= 1.4.6)
     haml (3.1.2)
@@ -128,6 +134,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
+    sass (3.1.3)
     selenium-webdriver (0.2.2)
       childprocess (>= 0.1.9)
       ffi (>= 1.0.7)
@@ -155,6 +162,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  compass (>= 0.11.3)
   cucumber-rails
   escape_utils
   formtastic
