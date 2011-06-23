@@ -1,5 +1,4 @@
 .bundle
 log/*.log
 tmp/
-config/application.yml
 public/stylesheets

@@ -1,6 +1,7 @@
-%h2= "Details for package #{@tracking.package_id}:"
-%ul
-  %li= @tracking.summary
-  - @tracking.events.each do |event|
-    %li= event
+#tracking-details
+  %h2= "Details for tracking number #{@tracking.package_id}"
+  %ul
+    %li= @tracking.summary
+    - @tracking.events.each do |event|
+      %li= event
 Package details provided by #{@service}
