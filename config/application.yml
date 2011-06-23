@@ -1,4 +1,4 @@
-production:
+defaults: &defaults
   fedex:
     account: <%= ENV['FEDEX_ACCOUNT'] %>
     meter: <%= ENV['FEDEX_METER'] %>
@@ -8,3 +8,9 @@ production:
     pass: <%= ENV['UPS_PASSWORD'] %>
   usps:
     user: <%= ENV['USPS_USER'] %>
+
+development:
+  <<: *defaults
+    
+test:
+  <<: *defaults
