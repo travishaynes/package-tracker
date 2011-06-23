@@ -4,7 +4,7 @@ production:
     meter: <%= ENV['FEDEX_METER'] %>
   ups:
     key: <%= ENV['UPS_KEY'] %>
-    login: <%= ENV['UPS_LOGIN'] %>
+    user: <%= ENV['UPS_LOGIN'] %>
     pass: <%= ENV['UPS_PASSWORD'] %>
   usps:
     user: <%= ENV['USPS_USER'] %>
