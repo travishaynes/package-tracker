@@ -8,13 +8,13 @@ gem 'settingslogic'
 
 gem 'haml-rails'
 gem 'formtastic'
+gem 'thor_tasks'
 
 gem "escape_utils" # used to fix encoding issue with rack 1.2.1
 
 group :development, :test do
   gem 'haml-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'simplecov'
 end
 
 group :test do
@@ -22,3 +22,5 @@ group :test do
   gem 'cucumber-rails'
   gem 'spork'
 end
+
+gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
