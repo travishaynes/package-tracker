@@ -1,9 +1,10 @@
-.failed {
-  border:1px solid rgba(255,0,0, 0.8); 
-}
+@import "compass/css3";
 
-input.failed:focus {
-  box-shadow: 0 0 4px rgba(255, 0, 0, 1);
-  -webkit-box-shadow: 0 0 4px rgba(255, 0, 0, 1); 
-  -moz-box-shadow: 0 0 4px rgba(255, 0, 0, 1); 
+input {
+  &.failed {
+    border:1px solid rgba(255,0,0, 0.8); 
+    &:focus {
+      @include box-shadow(0 0 6px rgba(255, 0, 0, 1));
+    }
+  }
 }
