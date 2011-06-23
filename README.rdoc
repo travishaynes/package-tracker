@@ -52,3 +52,49 @@ Example:
 == Sample Tracking Numbers
 
 You can find some sample tracking numbers in the features/tracking.feature file.
+
+== The code
+
+config/initializers/trackerific.rb
+  require 'trackerific'
+
+  Trackerific.configure do |config|
+    config.fedex  :meter    => Settings.fedex.meter,
+                  :account  => Settings.fedex.account
+    
+    config.ups    :key      => Settings.ups.key,
+                  :user_id  => Settings.ups.user,
+                  :password => Settings.ups.pass
+    
+    config.usps   :user_id  => Settings.usps.user
+  end
+
+app/controllers/application_controller.rb
+  class ApplicationController < ActionController::Base
+    protect_from_forgery
+    
+    rescue_from Trackerific::Error do |exception|
+      redirect_to root_url, :alert => exception.message
+    end
+  end
+
+app/views/controllers/home_controller.rb
+  class HomeController < ApplicationController
+    include Trackerific
+    
+    def index
+      if params.include?(:package_id) && !params[:package_id].empty?
+        id = params[:package_id]
+        @tracking = track_package(id)
+        @service = tracking_service(id).service_name
+      end
+    end
+  end
+
+app/views/home/_tracking_details.html.haml
+  %h2= "Details for package #{@tracking.package_id}:"
+  %ul
+    %li= @tracking.summary
+    - @tracking.events.each do |event|
+      %li= event
+  Package details provided by #{@service}
