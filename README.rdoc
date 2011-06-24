@@ -5,53 +5,51 @@ packages.
 
 == Configuration
 
-The only configuration necessary is to add a config/application.yml file with
-your UPS, FedEx and USPS credentials.
+There are two configuration files for this application: One for production -
+config/application.yml - and one for development - config/application.dev.yml.
+The production configuration uses environment variables. For security reasons,
+the development version is ignored by git, since it contains the credentials
+provided by the various tracking services for testing.
 
-Example:
+Before you can run this app in development mode, you will need to create the
+file config/application.dev.yml, and populate it with your credentials. Here is
+a sample configuration file:
 
-  # app/config/application.yml
+  # app/config/application.dev.yml
   defaults: &defaults
+    fedex:
+      account: 123456789
+      meter: 123456789
+    ups:
+      key: 123456789
+      user: 123456789
+      pass: 123456789
+    usps:
+      user: 123456789
+  
+  test:
+    <<: *defaults
 
   development:
     <<: *defaults
-    fedex:
-      account: 123456789
-      meter: 123456789
-    ups:
-      key: OH00TIFNA4IJ8JH4
-      user: username
-      pass: el8EiUwU1J
-    usps:
-      user: 123USER4567
-      
-  test:
-    <<: *defaults
-    fedex:
-      account: 123456789
-      meter: 123456789
-    ups:
-      key: OH00TIFNA4IJ8JH4
-      user: username
-      pass: el8EiUwU1J
-    usps:
-      user: 123USER4567
-
-  production:
-    <<: *defaults
-    fedex:
-      account: <%= ENV['FEDEX_ACCOUNT'] %>
-      meter: <%= ENV['FEDEX_METER'] %>
-    ups:
-      key: <%= ENV['UPS_KEY'] %>
-      login: <%= ENV['UPS_LOGIN'] %>
-      pass: <%= ENV['UPS_PASSWORD'] %>
-    usps:
-      user: <%= ENV['USPS_USER'] %>
-      
+    
 == Sample Tracking Numbers
 
-You can find some sample tracking numbers in the features/tracking.feature file.
+=== FedEx
+  183689015000001
+  999999999999999
+
+=== UPS
+  1Z12345E0291980793
+  1Z12345E6692804405
+  1Z12345E1392654435
+  1Z12345E6892410845
+  1Z12345E029198079
+  1Z12345E1591910450
+
+=== USPS
+  EJ958083578US
+  EJ958088694US
 
 == The code
 
