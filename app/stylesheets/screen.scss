@@ -10,6 +10,14 @@ body {
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+  color: #888;
+  &:hover {
+    color: #ccc;
+  }
+}
+
 #tracking_form {
   width: 810px;
   margin-bottom: 25px;
@@ -32,6 +40,22 @@ body {
   @include box-shadow(rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset);
   @include border-radius(6px);
   
+  table {
+    width: 100%;
+    tr {
+      height: 1.2em;
+    }
+    th.date {
+      width: 150px;
+    }
+    th.description {
+      width: 400px;
+    }
+    th.location {
+      width: 230px;
+    }
+  }
+  
   ul {
     font-weight: normal;
     line-height: 1.5em;
@@ -50,12 +74,14 @@ body {
   }
 }
 
+.provided-by {
+  font-weight: normal;
+  font-size: 0.75em;
+}
+
 h1 {
   color: #dadbb1;
   font-size: 2em;
-  margin {
-    
-  }
   margin-top: 15px;
   margin-bottom: 15px;
   width: 100%;

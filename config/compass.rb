@@ -23,7 +23,9 @@ http_path = "/"
 
 
 # configuration to get Compass to play nicely with heroku
-project_path = Compass::AppIntegration::Rails.root
-environment  = Compass::AppIntegration::Rails.env
-css_dir   = 'tmp/stylesheets'
-sass_dir  = 'app/views/stylesheets'
+if Rails.env.production?
+  project_path = Compass::AppIntegration::Rails.root
+  environment  = Compass::AppIntegration::Rails.env
+  css_dir   = 'tmp/stylesheets'
+  sass_dir  = 'app/views/stylesheets'
+end

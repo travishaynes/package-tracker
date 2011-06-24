@@ -1,1 +1,11 @@
-input.failed{border:1px solid rgba(255, 0, 0, 0.8)}input.failed:focus{-moz-box-shadow:0 0 6px red;-webkit-box-shadow:0 0 6px red;-o-box-shadow:0 0 6px red;box-shadow:0 0 6px red}
+/* line 4, ../../app/stylesheets/validations.scss */
+input.failed {
+  border: 1px solid rgba(255, 0, 0, 0.8);
+}
+/* line 6, ../../app/stylesheets/validations.scss */
+input.failed:focus {
+  -moz-box-shadow: 0 0 6px red;
+  -webkit-box-shadow: 0 0 6px red;
+  -o-box-shadow: 0 0 6px red;
+  box-shadow: 0 0 6px red;
+}

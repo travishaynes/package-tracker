@@ -21,5 +21,6 @@ Feature: Tracking Feature
   Scenario: Tracking a valid package id with an existing package
     When I fill in "Tracking Number" with "XXXXXXXXXX"
     And I press "Track It!"
-    Then I should see "Details for package"
+    Then I should see "Details for"
     And I should see "XXXXXXXXXX"
+    And I should see "Package details provided by"

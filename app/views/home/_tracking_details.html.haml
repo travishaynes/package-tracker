@@ -1,7 +1,14 @@
 #tracking-details
   %h2= "Details for tracking number #{@tracking.package_id}"
-  %ul
-    %li= @tracking.summary
+  %table
+    %tr{:style => 'display: none;'}
+      %th{:class => 'date'}
+      %th{:class => 'description'}
+      %th{:class => 'location'}
     - @tracking.events.each do |event|
-      %li= event
-Package details provided by #{@service}
+      %tr
+        %td= pretty_date(event.date)
+        %td= event.description
+        %td= event.location
+.provided-by
+  Package details provided by #{link_to_tracking_service(@service, @tracking.package_id)}
